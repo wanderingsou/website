@@ -1,0 +1,1053 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="icon" href="data:image/svg+xml;utf8,%3Csvg%20xmlns=%27http://www.w3.org/2000/svg%27%20viewBox=%270%200%20100%20100%27%3E%3Crect%20width=%27100%27%20height:%27100%27%20fill:%27#0f172a%27/%3E%3Ctext%20x=%2750%27%20y=%2757%27%20font-size=%2750%27%20font-family=%27Arial,%20Helvetica,%20sans-serif%27%20fill:%27#64ffda%27%20text-anchor:%27middle%27%3EAH%3C/text%3E%3C/svg%3E">
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Abdullah Hamid - Mechanical Engineer</title>
+    <style>
+        /* (existing CSS kept intact) */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; line-height: 1.6; color: #e2e8f0; background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #334155 100%); min-height: 100vh; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+        .page { display: none; }
+        .page.active { display: block; }
+        header { background: rgba(15, 23, 42, 0.9); backdrop-filter: blur(20px); border-bottom: 1px solid rgba(148, 163, 184, 0.1); position: fixed; width: 100%; top: 0; z-index: 1000; transition: all 0.3s ease; }
+        nav { display: flex; justify-content: space-between; align-items: center; padding: 1rem 2rem; }
+        .logo { font-size: 1.5rem; font-weight: 700; color: #64ffda; text-decoration: none; text-shadow: 0 0 10px rgba(100, 255, 218, 0.3); cursor: pointer; }
+        .nav-links { display: flex; list-style: none; gap: 2rem; }
+        .nav-links a { color: #cbd5e1; text-decoration: none; font-weight: 500; transition: all 0.3s ease; position: relative; cursor: pointer; }
+        .nav-links a:hover { color: #64ffda; transform: translateY(-2px); }
+        .nav-links a::after { content: ''; position: absolute; width: 0; height: 2px; bottom: -5px; left: 0; background: #64ffda; transition: width 0.3s ease; }
+        .nav-links a:hover::after { width: 100%; }
+        .hero { height: 100vh; display: flex; align-items: center; justify-content: center; text-align: center; color: #e2e8f0; position: relative; overflow: hidden; }
+        .hero::before { content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: radial-gradient(circle at 50% 50%, rgba(100, 255, 218, 0.05) 0%, transparent 70%); animation: pulse 4s ease-in-out infinite; }
+        @keyframes pulse { 0%, 100% { opacity: 0.3; } 50% { opacity: 0.8; } }
+        .hero-content { z-index: 2; position: relative; }
+        .hero h1 { font-size: 4rem; font-weight: 800; margin-bottom: 1rem; background: linear-gradient(45deg, #64ffda, #00d4aa); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; animation: fadeInUp 1s ease; }
+        .hero .subtitle { font-size: 1.5rem; margin-bottom: 2rem; color: #94a3b8; animation: fadeInUp 1s ease 0.2s both; }
+        .hero .description { font-size: 1.1rem; max-width: 600px; margin: 0 auto 3rem; color: #cbd5e1; animation: fadeInUp 1s ease 0.4s both; }
+        @keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+        .cta-buttons { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; animation: fadeInUp 1s ease 0.6s both; }
+        .btn { padding: 12px 30px; border: none; border-radius: 50px; font-weight: 600; text-decoration: none; transition: all 0.3s ease; cursor: pointer; display: inline-flex; align-items: center; gap: 8px; }
+        .btn-primary { background: linear-gradient(45deg, #64ffda, #00d4aa); color: #0f172a; box-shadow: 0 4px 15px rgba(100, 255, 218, 0.3); }
+        .btn-secondary { background: transparent; color: #64ffda; border: 2px solid rgba(100, 255, 218, 0.3); backdrop-filter: blur(10px); }
+        .btn:hover { transform: translateY(-3px); box-shadow: 0 8px 25px rgba(100, 255, 218, 0.2); }
+        .btn-primary:hover { box-shadow: 0 8px 25px rgba(100, 255, 218, 0.4); }
+        .contact-links { display: flex; gap: 1.5rem; justify-content: center; margin-top: 2rem; animation: fadeInUp 1s ease 0.8s both; }
+        .contact-link { padding: 10px 20px; background: rgba(100, 255, 218, 0.1); border: 1px solid rgba(100, 255, 218, 0.2); border-radius: 50px; color: #64ffda; text-decoration: none; transition: all 0.3s ease; display: flex; align-items: center; gap: 8px; }
+        .contact-link:hover { background: rgba(100, 255, 218, 0.2); transform: translateY(-2px); }
+        section { padding: 5rem 0; position: relative; }
+        .section-card { background: rgba(30, 41, 59, 0.8); backdrop-filter: blur(20px); margin: 2rem 0; border-radius: 20px; border: 1px solid rgba(148, 163, 184, 0.1); box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3); overflow: hidden; }
+        .section-header { text-align: center; margin-bottom: 3rem; padding: 3rem 2rem 0; }
+        .section-header h2 { font-size: 2.5rem; font-weight: 700; margin-bottom: 1rem; background: linear-gradient(45deg, #64ffda, #00d4aa); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .section-header p { font-size: 1.1rem; color: #94a3b8; max-width: 600px; margin: 0 auto; }
+        .profile-content { padding: 0 3rem 3rem; text-align: center; }
+        .profile-description { font-size: 1.2rem; line-height: 1.8; color: #cbd5e1; margin-bottom: 3rem; max-width: 800px; margin-left: auto; margin-right: auto; }
+        .specialties-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; margin-top: 3rem; }
+        .specialty-card { background: rgba(51, 65, 85, 0.5); border: 1px solid rgba(148, 163, 184, 0.1); border-radius: 15px; padding: 2rem; text-align: center; transition: all 0.3s ease; }
+        .specialty-card:hover { transform: translateY(-10px); box-shadow: 0 15px 40px rgba(100, 255, 218, 0.1); border-color: rgba(100, 255, 218, 0.3); }
+        .specialty-icon { font-size: 3rem; margin-bottom: 1rem; }
+        .specialty-card h3 { font-size: 1.3rem; margin-bottom: 1rem; color: #64ffda; }
+        .specialty-card p { color: #94a3b8; line-height: 1.6; }
+        .timeline { position: relative; margin: 2rem 0; padding: 0 2rem; }
+        .timeline::before { content: ''; position: absolute; left: 50%; top: 0; bottom: 0; width: 2px; background: linear-gradient(to bottom, #64ffda, #00d4aa); transform: translateX(-50%); }
+        .timeline-item { display: flex; margin: 3rem 0; position: relative; }
+        .timeline-item:nth-child(odd) { flex-direction: row; }
+        .timeline-item:nth-child(even) { flex-direction: row-reverse; }
+        .timeline-content { width: calc(50% - 2rem); background: rgba(51, 65, 85, 0.5); border: 1px solid rgba(148, 163, 184, 0.1); border-radius: 15px; padding: 2rem; position: relative; }
+        .timeline-marker { position: absolute; left: 50%; top: 2rem; width: 16px; height: 16px; background: #64ffda; border-radius: 50%; transform: translateX(-50%); box-shadow: 0 0 10px rgba(100, 255, 218, 0.5); }
+        .timeline-date { background: linear-gradient(45deg, #64ffda, #00d4aa); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; font-weight: 600; margin-bottom: 0.5rem; }
+        .timeline-title { font-size: 1.3rem; font-weight: 600; margin-bottom: 0.5rem; color: #e2e8f0; }
+        .timeline-subtitle { color: #94a3b8; margin-bottom: 1rem; }
+        .timeline-description { color: #cbd5e1; line-height: 1.6; }
+        .achievement-list { list-style: none; margin-top: 1rem; }
+        .achievement-list li { padding: 0.3rem 0; color: #94a3b8; position: relative; padding-left: 1rem; }
+        .achievement-list li::before { content: '▶'; color: #64ffda; position: absolute; left: 0; }
+        .projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 2rem; padding: 0 3rem 3rem; }
+        .project-card { background: rgba(51, 65, 85, 0.5); border: 1px solid rgba(148, 163, 184, 0.1); border-radius: 15px; padding: 2rem; transition: all 0.3s ease; position: relative; overflow: hidden; }
+        .project-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px; background: linear-gradient(45deg, #64ffda, #00d4aa); }
+        .project-card:hover { transform: translateY(-10px); box-shadow: 0 15px 40px rgba(100, 255, 218, 0.1); border-color: rgba(100, 255, 218, 0.3); }
+        .project-complexity { display: inline-block; padding: 0.3rem 0.8rem; background: rgba(100, 255, 218, 0.1); color: #64ffda; border-radius: 20px; font-size: 0.8rem; font-weight: 600; margin-bottom: 1rem; }
+        .project-card h3 { font-size: 1.5rem; margin-bottom: 1rem; color: #e2e8f0; }
+        .project-card p { color: #94a3b8; margin-bottom: 1.5rem; line-height: 1.6; }
+        .project-achievements { margin-bottom: 1.5rem; }
+        .project-achievements h4 { color: #64ffda; margin-bottom: 0.5rem; font-size: 1rem; }
+        .project-tech { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1.5rem; }
+        .tech-tag { background: rgba(30, 41, 59, 0.8); color: #cbd5e1; padding: 0.3rem 0.8rem; border-radius: 15px; font-size: 0.8rem; border: 1px solid rgba(148, 163, 184, 0.1); }
+        .activities-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem; padding: 0 3rem 3rem; }
+        .activity-card { background: rgba(51, 65, 85, 0.5); border: 1px solid rgba(148, 163, 184, 0.1); border-radius: 15px; padding: 1.5rem; text-align: center; transition: all 0.3s ease; }
+        .activity-card:hover { transform: translateY(-5px); border-color: rgba(100, 255, 218, 0.3); }
+        .activity-icon { font-size: 2.5rem; margin-bottom: 1rem; }
+        .activity-card h4 { color: #64ffda; margin-bottom: 0.5rem; }
+        .activity-card p { color: #94a3b8; font-size: 0.9rem; }
+        .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; padding: 0 3rem 3rem; }
+        .skill-category { background: rgba(51, 65, 85, 0.5); border: 1px solid rgba(148, 163, 184, 0.1); border-radius: 15px; padding: 2rem; }
+        .skill-category h3 { color: #64ffda; margin-bottom: 1.5rem; font-size: 1.3rem; }
+        .skill-list { display: flex; flex-direction: column; gap: 1rem; }
+        .skill-item { display: flex; justify-content: space-between; align-items: center; padding: 0.8rem; background: rgba(30, 41, 59, 0.5); border-radius: 10px; border: 1px solid rgba(148, 163, 184, 0.1); }
+        .skill-name { color: #e2e8f0; font-weight: 500; }
+        .skill-level { background: linear-gradient(45deg, #64ffda, #00d4aa); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; font-weight: 600; font-size: 0.9rem; }
+        .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; padding: 0 3rem 3rem; }
+        .contact-info { display: flex; flex-direction: column; gap: 1.5rem; }
+        .contact-item { display: flex; align-items: center; gap: 1rem; padding: 1.5rem; background: rgba(51, 65, 85, 0.5); border: 1px solid rgba(148, 163, 184, 0.1); border-radius: 15px; transition: all 0.3s ease; text-decoration: none; color: inherit; }
+        .contact-item:hover { background: rgba(100, 255, 218, 0.05); border-color: rgba(100, 255, 218, 0.3); transform: translateX(10px); }
+        .contact-icon { font-size: 1.5rem; color: #64ffda; width: 40px; text-align: center; }
+        .contact-details h4 { color: #e2e8f0; margin-bottom: 0.3rem; }
+        .contact-details p { color: #94a3b8; font-size: 0.9rem; }
+        .quick-actions { display: flex; flex-direction: column; gap: 1rem; }
+        .action-btn { padding: 1rem 2rem; background: linear-gradient(45deg, #64ffda, #00d4aa); color: #0f172a; border: none; border-radius: 10px; font-weight: 600; text-decoration: none; text-align: center; transition: all 0.3s ease; display: flex; align-items: center; justify-content: center; gap: 0.5rem; }
+        .action-btn:hover { transform: translateY(-3px); box-shadow: 0 8px 25px rgba(100, 255, 218, 0.3); }
+        .action-btn.secondary { background: transparent; color: #64ffda; border: 2px solid rgba(100, 255, 218, 0.3); }
+        .projects-page-header { padding-top: 120px; padding-bottom: 3rem; text-align: center; }
+        .projects-page-header h1 { font-size: 3rem; font-weight: 800; margin-bottom: 1rem; background: linear-gradient(45deg, #64ffda, #00d4aa); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .projects-page-header p { font-size: 1.2rem; color: #94a3b8; max-width: 600px; margin: 0 auto; }
+        .back-btn { position: fixed; top: 100px; left: 20px; background: rgba(100, 255, 218, 0.1); border: 2px solid rgba(100, 255, 218, 0.3); color: #64ffda; padding: 10px 20px; border-radius: 50px; text-decoration: none; font-weight: 600; transition: all 0.3s ease; z-index: 999; cursor: pointer; }
+        .back-btn:hover { background: rgba(100, 255, 218, 0.2); transform: translateY(-2px); }
+        @media (max-width: 768px) { .nav-links { display: none; } .hero h1 { font-size: 2.5rem; } .hero .subtitle { font-size: 1.2rem; } .timeline::before { left: 1rem; } .timeline-item { flex-direction: column !important; margin-left: 2rem; } .timeline-content { width: 100%; margin-bottom: 1rem; } .timeline-marker { left: 1rem; } .contact-grid { grid-template-columns: 1fr; } .cta-buttons { flex-direction: column; align-items: center; } .contact-links { flex-direction: column; align-items: center; } .projects-grid, .skills-grid, .specialties-grid { grid-template-columns: 1fr; padding: 0 1rem 3rem; } .activities-grid { grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); padding: 0 1rem 3rem; } .back-btn { position: relative; top: 0; left: 0; margin: 20px auto; display: block; width: fit-content; } }
+        .fade-in { opacity: 0; transform: translateY(30px); transition: all 0.6s ease; }
+        .fade-in.visible { opacity: 1; transform: translateY(0); }
+        .particles { position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: -1; }
+        .particle { position: absolute; background: rgba(100, 255, 218, 0.1); border-radius: 50%; animation: float 6s ease-in-out infinite; }
+        @keyframes float { 0%, 100% { transform: translateY(0px) rotate(0deg); opacity: 0.3; } 50% { transform: translateY(-20px) rotate(180deg); opacity: 0.8; } }
+        .scroll-indicator { position: absolute; bottom: 2rem; left: 50%; transform: translateX(-50%); color: #64ffda; animation: bounce 2s infinite; }
+        @keyframes bounce { 0%, 20%, 50%, 80%, 100% { transform: translateX(-50%) translateY(0); } 40% { transform: translateX(-50%) translateY(-10px); } 60% { transform: translateX(-50%) translateY(-5px); } }
+        /* Additional small styles for achievements & publications */
+        .achievement-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.5rem; padding: 0 3rem 3rem; }
+        .achievement-card { background: rgba(30,41,59,0.6); border: 1px solid rgba(148,163,184,0.08); border-radius: 12px; padding: 1.2rem; }
+        .achievement-card h4 { color: #64ffda; margin-bottom: 0.4rem; }
+        .pub-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; padding: 0 3rem 3rem; }
+        .pub-card { background: rgba(30,41,59,0.6); border: 1px solid rgba(148,163,184,0.08); border-radius: 12px; padding: 1rem; }
+    </style>
+</head>
+<body>
+    <!-- Floating particles background -->
+    <div class="particles" id="particles"></div>
+
+    <!-- Header -->
+    <header>
+        <nav class="container">
+            <a href="#" class="logo" onclick="showMainPage()">Abdullah Hamid</a>
+            <ul class="nav-links">
+                <li><a onclick="showMainPage(); scrollToSection('home')">Home</a></li>
+                <li><a onclick="showMainPage(); scrollToSection('profile')">Profile</a></li>
+                <li><a onclick="showMainPage(); scrollToSection('education')">Education</a></li>
+                <li><a onclick="showMainPage(); scrollToSection('experience')">Experience</a></li>
+                <li><a onclick="showMainPage(); scrollToSection('projects')">Projects</a></li>
+                <li><a onclick="showMainPage(); scrollToSection('achievements')">Achievements</a></li>
+                <li><a onclick="showMainPage(); scrollToSection('publications')">Publications</a></li>
+                <li><a onclick="showMainPage(); scrollToSection('activities')">Activities</a></li>
+                <li><a onclick="showMainPage(); scrollToSection('skills')">Skills</a></li>
+                <li><a onclick="showMainPage(); scrollToSection('contact')">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main Page -->
+    <div id="mainPage" class="page active">
+        <!-- Hero Section -->
+        <section id="home" class="hero">
+            <div class="hero-content">
+                <h1>Abdullah Hamid</h1>
+                <p class="subtitle">Mechanical Engineer</p>
+                <p class="description">
+                    Dynamic Mechanical Engineer specializing in UAV controls, computational aerodynamics, and sustainable manufacturing solutions. 
+                    Delivering innovative solutions through cutting-edge technology and precision engineering.
+                </p>
+                <div class="cta-buttons">
+                    <a onclick="scrollToSection('projects')" class="btn btn-primary">View My Work</a>
+                    <a onclick="scrollToSection('contact')" class="btn btn-secondary">Get In Touch</a>
+                </div>
+                <div class="contact-links">
+                    <a href="https://www.linkedin.com/in/abdullah-hamid-a7453928a" class="contact-link" target="_blank">
+                        📧 LinkedIn Profile
+                    </a>
+                </div>
+            </div>
+            <div class="scroll-indicator">
+                <span>⬇</span>
+            </div>
+        </section>
+
+        <div class="container">
+            <!-- Professional Profile -->
+            <section id="profile" class="section-card fade-in">
+                <div class="section-header">
+                    <h2>Professional Profile</h2>
+                    <p>Expertise in flight stability, navigation algorithms, sustainable manufacturing, and cutting-edge engineering solutions</p>
+                </div>
+                <div class="profile-content">
+                    <div class="profile-description">
+                        A proven leader with expertise in flight stability, navigation algorithms, real-time data transmission, and sustainable manufacturing solutions. 
+                        Skilled in CFD, FEA, embedded programming, rapid prototyping, and eco-friendly product design, delivering robust systems under tight 
+                        deadlines with exceptional precision and innovation.
+                    </div>
+                    <div class="specialties-grid">
+                        <div class="specialty-card">
+                            <div class="specialty-icon">🚁</div>
+                            <h3>UAV Controls</h3>
+                            <p>Specializing in flight stability and navigation algorithms for unmanned aerial vehicles with advanced control systems.</p>
+                        </div>
+                        <div class="specialty-card">
+                            <div class="specialty-icon">🌊</div>
+                            <h3>Computational Aerodynamics</h3>
+                            <p>Expertise in CFD and FEA for optimizing aerodynamic performance and fluid flow analysis.</p>
+                        </div>
+                        <div class="specialty-card">
+                            <div class="specialty-icon">♻️</div>
+                            <h3>Sustainable Manufacturing</h3>
+                            <p>Designing eco-friendly manufacturing solutions for plastic recycling and sustainable product development.</p>
+                        </div>
+                        <div class="specialty-card">
+                            <div class="specialty-icon">⚙️</div>
+                            <h3>Mechanical Design</h3>
+                            <p>Specialized in designing mechanical systems, structures and HVAC systems with precision engineering.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Achievements (NEW) -->
+            <section id="achievements" class="section-card fade-in">
+                <div class="section-header">
+                    <h2>Key Achievements</h2>
+                    <p>Highlighting significant accomplishments and milestones in engineering excellence and innovation</p>
+                </div>
+                <div class="achievement-cards">
+                    <div class="achievement-card">
+                        <h4>2024 — Teknofest International Competition</h4>
+                        <p><strong>Category:</strong> Competition</p>
+                        <p>Successfully led Team Hadaf to participate in the prestigious Teknofest International UAV Competition, demonstrating advanced autonomous flight capabilities.</p>
+                        <p><strong>Impact:</strong> International Recognition</p>
+                    </div>
+
+                    <div class="achievement-card">
+                        <h4>2024 — 30% Flight Stability Enhancement</h4>
+                        <p><strong>Category:</strong> Technical Achievement</p>
+                        <p>Achieved significant improvement in UAV flight stability through innovative PID control tuning and advanced navigation algorithms.</p>
+                        <p><strong>Impact:</strong> Performance Optimization</p>
+                    </div>
+
+                    <div class="achievement-card">
+                        <h4>2024 — 15% Aerodynamic Efficiency Gain</h4>
+                        <p><strong>Category:</strong> Research Excellence</p>
+                        <p>Optimized lift-to-drag ratio through computational fluid dynamics analysis on NACA airfoils, contributing to energy-efficient aircraft design.</p>
+                        <p><strong>Impact:</strong> Energy Efficiency</p>
+                    </div>
+
+                    <div class="achievement-card">
+                        <h4>2024 — Team Leadership Excellence</h4>
+                        <p><strong>Category:</strong> Leadership</p>
+                        <p>Successfully led multidisciplinary engineering teams across multiple projects, demonstrating exceptional project management and technical leadership skills.</p>
+                        <p><strong>Impact:</strong> Team Development</p>
+                    </div>
+
+                    <div class="achievement-card">
+                        <h4>2024 — Research Publications</h4>
+                        <p><strong>Category:</strong> Academic Excellence</p>
+                        <p>Contributing to academic research with publications on toroidal propellers and thermal cycle optimization, advancing engineering knowledge.</p>
+                        <p><strong>Impact:</strong> Knowledge Contribution</p>
+                    </div>
+
+                    <div class="achievement-card">
+                        <h4>2024 — Multi-Platform Integration</h4>
+                        <p><strong>Category:</strong> Technical Innovation</p>
+                        <p>Successfully integrated complex systems including Jetson Nano, Pixhawk, and simulation environments for comprehensive UAV development.</p>
+                        <p><strong>Impact:</strong> System Integration</p>
+                    </div>
+
+                    <div class="achievement-card">
+                        <h4>2022 — 3rd Position (Gujranwala Board)</h4>
+                        <p><strong>Category:</strong> Academic Achievement</p>
+                        <p>Secured 3rd position in FSc (Pre-Engineering) — Gujranwala Board (2022).</p>
+                        <p><strong>Impact:</strong> Demonstrated strong academic foundation and consistent performance in pre-engineering coursework.</p>
+                    </div>
+                </div>
+
+                <div style="padding: 0 3rem 2rem; color:#cbd5e1;">
+                    <h4 style="color:#64ffda; margin-top:1rem;">Continuous Growth &amp; Innovation</h4>
+                    <p>These achievements represent a commitment to excellence in mechanical engineering, combining theoretical knowledge with practical innovation to solve complex engineering challenges and contribute to technological advancement.</p>
+                </div>
+            </section>
+
+            <!-- Education -->
+            <section id="education" class="section-card fade-in">
+                <div class="section-header">
+                    <h2>Education</h2>
+                </div>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <div class="timeline-date">2022–2026 (Ongoing)</div>
+                            <h3 class="timeline-title">BE Mechanical Engineering</h3>
+                            <div class="timeline-subtitle">NUST H-12 (National University of Sciences and Technology)</div>
+                            <p class="timeline-description">Specialization in UAV systems and computational mechanics; coursework in CFD, Dynamics, and Controls.</p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-marker"></div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <div class="timeline-date">2020–2022</div>
+                            <h3 class="timeline-title">FSc — Pre-Engineering</h3>
+                            <div class="timeline-subtitle">Board of Intermediate and Secondary Education, Gujranwala</div>
+                            <p class="timeline-description">Completed FSc Pre-Engineering (2020–2022). Achieved 3rd position in the Gujranwala Board, demonstrating strong academic performance in core mathematics and physics subjects.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Professional Experience (moved back and expanded) -->
+            <section id="experience" class="section-card fade-in">
+                <div class="section-header">
+                    <h2>Professional Experience</h2>
+                    <p>Hands-on experience in research, design and system integration across UAV and sustainable manufacturing projects.</p>
+                </div>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <div class="timeline-date">—</div>
+                            <h3 class="timeline-title">Research Associate (Promoted from Research Intern)</h3>
+                            <div class="timeline-subtitle">Computational Aeronautics Lab (CAL)</div>
+                            <p class="timeline-description">Conducted CFD studies, flight dynamics modelling and experimental validation. Contributed to CFD workflows, automated post-processing scripts and flight-test data analysis.</p>
+                            <ul class="achievement-list">
+                                <li>Developed automated meshing &amp; solver setup scripts to accelerate simulation turnaround.</li>
+                                <li>Validated CFD predictions against wind-tunnel / field test datasets.</li>
+                                <li>Collaborated with control engineers to tune flight controllers using simulation data.</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="timeline-marker"></div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <div class="timeline-date">—</div>
+                            <h3 class="timeline-title">Design Engineer (Part-time)</h3>
+                            <div class="timeline-subtitle">Ecobricks</div>
+                            <p class="timeline-description">Part-time role focusing on design and prototyping of sustainable plastic recycling solutions and related product components.</p>
+                            <ul class="achievement-list">
+                                <li>Led CAD design and prototyping for recycled-plastic product lines.</li>
+                                <li>Optimized part geometry for manufacturability and reduced material usage.</li>
+                                <li>Supported pilot production runs and quality control tuning.</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="timeline-marker"></div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <div class="timeline-date">2023–2024</div>
+                            <h3 class="timeline-title">Team Lead — Hadaf</h3>
+                            <div class="timeline-subtitle">Teknofest — Fighter UAV</div>
+                            <p class="timeline-description">Led a multidisciplinary team developing a fighter UAV for Teknofest, focusing on flight controls, airframe integration, and testing.</p>
+                            <ul class="achievement-list">
+                                <li>Project planning, resource allocation and test campaign coordination.</li>
+                                <li>Drive integration of navigation, perception and control subsystems.</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="timeline-marker"></div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <div class="timeline-date">June 2024 – June 2025</div>
+                            <h3 class="timeline-title">Powertrain Member — Team Markhor</h3>
+                            <div class="timeline-subtitle">Baja SAE (Team Markhor)</div>
+                            <p class="timeline-description">Worked on powertrain design and optimization for Baja SAE competition vehicles, including component selection and drivetrain testing.</p>
+                            <ul class="achievement-list">
+                                <li>Performed gear ratio calculations and validated through bench testing.</li>
+                                <li>Assisted in durability testing and failure-mode analysis.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Projects Preview (unchanged content but ensured no "Professional Experience" appears here) -->
+            <section id="projects" class="section-card fade-in">
+                <div class="section-header">
+                    <h2>Featured Projects</h2>
+                    <p>Showcase of innovative engineering solutions and cutting-edge technology implementations</p>
+                </div>
+                <div class="projects-grid">
+                    <!-- project cards (same as original) -->
+                    <div class="project-card">
+                        <div class="project-complexity">FYP</div>
+                        <h3>FYP — Drone-Based Anti-Drone System</h3>
+                        <p>Autonomous counter-UAS system designed to detect, intercept and neutralize hostile drones with reusable interception capability.</p>
+                        <div class="project-achievements">
+                            <h4>Key Outcomes:</h4>
+                            <ul class="achievement-list">
+                                <li>Autonomous target detection using computer vision</li>
+                                <li>Real-time threat assessment and classification</li>
+                                <li>Physical interception mechanism with reusable design</li>
+                                <li>Advanced flight path prediction algorithms</li>
+                            </ul>
+                        </div>
+                        <div class="project-tech">
+                            <span class="tech-tag">Computer Vision</span>
+                            <span class="tech-tag">Machine Learning</span>
+                            <span class="tech-tag">Autonomous Systems</span>
+                            <span class="tech-tag">Embedded Systems</span>
+                        </div>
+                    </div>
+
+                    <div class="project-card">
+                        <div class="project-complexity">Research Project</div>
+                        <h3>Autonomous Fighter UAV</h3>
+                        <p>An autonomous fighter-class UAV prototype focusing on target detection, engagement verification and secure data relay to ground stations.</p>
+                        <div class="project-achievements">
+                            <h4>System Capabilities:</h4>
+                            <ul class="achievement-list">
+                                <li>Autonomous detection and classification of nearby UAVs</li>
+                                <li>5-second evidence video capture and secure transmission to ground station</li>
+                                <li>Integration of camera, Raspberry Pi and Pixhawk for onboard processing</li>
+                                <li>Modular payload and guided interception routines</li>
+                            </ul>
+                        </div>
+                        <div class="project-tech">
+                            <span class="tech-tag">Raspberry Pi</span>
+                            <span class="tech-tag">Pixhawk</span>
+                            <span class="tech-tag">Computer Vision</span>
+                            <span class="tech-tag">Autonomy</span>
+                        </div>
+                    </div>
+
+                    <div class="project-card">
+                        <div class="project-complexity">Featured Research</div>
+                        <h3>CFD-Based Toroidal Propeller Design</h3>
+                        <p>Advanced CFD analysis of toroidal propellers aimed at improving thrust efficiency and reducing acoustic signature for next-generation aircraft.</p>
+                        <div class="project-achievements">
+                            <h4>Research Highlights:</h4>
+                            <ul class="achievement-list">
+                                <li>Novel blade tip design for vortex reduction</li>
+                                <li>Improved thrust efficiency through optimized geometry</li>
+                                <li>Acoustic signature reduction validated in simulation studies</li>
+                            </ul>
+                        </div>
+                        <div class="project-tech">
+                            <span class="tech-tag">ANSYS Fluent</span>
+                            <span class="tech-tag">CFD</span>
+                            <span class="tech-tag">Acoustics</span>
+                            <span class="tech-tag">Propeller Design</span>
+                        </div>
+                    </div>
+
+                    <div class="project-card">
+                        <div class="project-complexity">Featured</div>
+                        <h3>Flight Simulator Motion Platform</h3>
+                        <p>High-fidelity motion platform developed for pilot training with real-time flight data integration and multi-DOF motion cues.</p>
+                        <div class="project-achievements">
+                            <h4>System Features:</h4>
+                            <ul class="achievement-list">
+                                <li>6-degree-of-freedom motion simulation (prototype)</li>
+                                <li>Real-time flight data integration with servo control</li>
+                                <li>High-frequency response for realistic motion cues</li>
+                            </ul>
+                        </div>
+                        <div class="project-tech">
+                            <span class="tech-tag">Motion Control</span>
+                            <span class="tech-tag">Real-time Systems</span>
+                            <span class="tech-tag">Servo Systems</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="view-all-projects">
+                    <button class="btn btn-primary" onclick="showProjectsPage()" aria-label="View all projects">View All Projects →</button>
+                </div>
+            </section>
+
+            <!-- Publications & Certifications (NEW) -->
+            <section id="publications" class="section-card fade-in">
+                <div class="section-header">
+                    <h2>Publications &amp; Certifications</h2>
+                    <p>Contributing to engineering knowledge through research publications and maintaining expertise through professional certifications</p>
+                </div>
+
+                <div style="padding: 0 3rem 1rem; color:#cbd5e1;">
+                    <h3 style="color:#64ffda;">Research Publications</h3>
+                    <p>Contributing research in aerodynamics, propulsion and thermodynamic cycles.</p>
+                </div>
+
+                <div class="pub-grid">
+                    <div class="pub-card">
+                        <h4>CFD and Experimental Analysis of Toroidal Propellers — <em>Ongoing</em></h4>
+                        <p><strong>Type:</strong> Research Paper (2024)</p>
+                        <p>Comprehensive study on the aerodynamic characteristics and acoustic properties of toroidal propellers using computational fluid dynamics and experimental validation.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">CFD</span>
+                            <span class="tech-tag">Toroidal Propellers</span>
+                            <span class="tech-tag">Aerodynamics</span>
+                            <span class="tech-tag">Acoustic Analysis</span>
+                        </div>
+                    </div>
+
+                    <div class="pub-card">
+                        <h4>Rankine Heat Cycle Analysis and Optimization of Cycle Efficiency — <em>Published</em></h4>
+                        <p><strong>Type:</strong> Technical Report (June 2024)</p>
+                        <p>Detailed thermodynamic analysis focusing on improving the efficiency of Rankine cycle through advanced optimization techniques and parameter studies.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Thermodynamics</span>
+                            <span class="tech-tag">Heat Cycle</span>
+                            <span class="tech-tag">Efficiency Optimization</span>
+                            <span class="tech-tag">Energy Systems</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div style="padding: 0 3rem 1rem; color:#cbd5e1; margin-top:0.5rem;">
+                    <h3 style="color:#64ffda;">Professional Certifications</h3>
+                    <p>Maintaining up-to-date technical skills through targeted professional development.</p>
+                </div>
+
+                <div class="pub-grid">
+                    <div class="pub-card">
+                        <h4>Drone Programming and UAV Development</h4>
+                        <p><strong>Provider:</strong> Udemy</p>
+                        <p>Comprehensive course covering UAV programming, flight control systems, and autonomous navigation algorithms.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">UAV Programming</span>
+                            <span class="tech-tag">Flight Control</span>
+                            <span class="tech-tag">Autonomous Systems</span>
+                        </div>
+                    </div>
+                    <div class="pub-card">
+                        <h4>Introduction to Programming with MATLAB</h4>
+                        <p><strong>Provider:</strong> Vanderbilt University</p>
+                        <p>Advanced MATLAB programming for engineering applications including numerical analysis and data processing.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">MATLAB Programming</span>
+                            <span class="tech-tag">Numerical Analysis</span>
+                            <span class="tech-tag">Data Processing</span>
+                        </div>
+                    </div>
+                    <div class="pub-card">
+                        <h4>FEA Convergence and Mesh Independence</h4>
+                        <p><strong>Provider:</strong> Coursera</p>
+                        <p>Advanced finite element analysis techniques focusing on mesh optimization and convergence studies.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Finite Element Analysis</span>
+                            <span class="tech-tag">Mesh Generation</span>
+                            <span class="tech-tag">Convergence Studies</span>
+                        </div>
+                    </div>
+                    <div class="pub-card">
+                        <h4>Control Design Using Simulink</h4>
+                        <p><strong>Provider:</strong> MathWorks</p>
+                        <p>Professional certification in control system design and simulation using MATLAB Simulink environment.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Control Systems</span>
+                            <span class="tech-tag">Simulink</span>
+                            <span class="tech-tag">System Design</span>
+                        </div>
+                    </div>
+
+                    <div class="pub-card">
+                        <h4>Introduction to Computer Vision and Image Processing</h4>
+                        <p><strong>Provider:</strong> IBM</p>
+                        <p>Comprehensive training in computer vision algorithms and image processing techniques for engineering applications.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Computer Vision</span>
+                            <span class="tech-tag">Image Processing</span>
+                            <span class="tech-tag">Machine Learning</span>
+                        </div>
+                    </div>
+
+                    <div class="pub-card">
+                        <h4>Embedded Machine Learning</h4>
+                        <p><strong>Provider:</strong> Edge Impulse</p>
+                        <p>Specialized training in implementing machine learning algorithms on embedded systems and IoT devices.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Embedded Systems</span>
+                            <span class="tech-tag">Machine Learning</span>
+                            <span class="tech-tag">IoT</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div style="padding: 0 3rem 2rem; color:#cbd5e1;">
+                    <h4 style="color:#64ffda; margin-top:1rem;">Commitment to Continuous Learning</h4>
+                    <p>Staying at the forefront of engineering innovation through ongoing research contributions and professional development. These publications and certifications demonstrate a commitment to both advancing engineering knowledge and maintaining cutting-edge technical expertise.</p>
+                </div>
+            </section>
+
+            <!-- Sports & Activities -->
+            <section id="activities" class="section-card fade-in">
+                <div class="section-header">
+                    <h2>Sports & Activities</h2>
+                    <p>Maintaining a balanced lifestyle through diverse sporting activities and personal interests</p>
+                </div>
+                <div class="activities-grid">
+                    <div class="activity-card">
+                        <div class="activity-icon">🏊‍♂️</div>
+                        <h4>Swimming</h4>
+                        <p>Regular competitive swimming for fitness and endurance training</p>
+                    </div>
+                    <div class="activity-card">
+                        <div class="activity-icon">🏸</div>
+                        <h4>Badminton</h4>
+                        <p>Strategic gameplay and quick reflexes development through badminton</p>
+                    </div>
+                    <div class="activity-card">
+                        <div class="activity-icon">🏏</div>
+                        <h4>Cricket</h4>
+                        <p>Team coordination and strategic thinking through cricket matches</p>
+                    </div>
+                    <div class="activity-card">
+                        <div class="activity-icon">⚙️</div>
+                        <h4>Engineering Projects</h4>
+                        <p>Personal engineering challenges and innovation experiments</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Skills -->
+            <section id="skills" class="section-card fade-in">
+                <div class="section-header">
+                    <h2>Technical Skills</h2>
+                    <p>Comprehensive expertise across engineering design, analysis, and manufacturing technologies</p>
+                </div>
+                <div class="skills-grid">
+                    <div class="skill-category">
+                        <h3>Design & Analysis</h3>
+                        <div class="skill-list">
+                            <div class="skill-item">
+                                <span class="skill-name">SolidWorks</span>
+                                <span class="skill-level">Expert</span>
+                            </div>
+                            <div class="skill-item">
+                                <span class="skill-name">AutoCAD</span>
+                                <span class="skill-level">Advanced</span>
+                            </div>
+                            <div class="skill-item">
+                                <span class="skill-name">ANSYS (CFD/FEA)</span>
+                                <span class="skill-level">Advanced</span>
+                            </div>
+                            <div class="skill-item">
+                                <span class="skill-name">MATLAB</span>
+                                <span class="skill-level">Advanced</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="skill-category">
+                        <h3>Programming</h3>
+                        <div class="skill-list">
+                            <div class="skill-item">
+                                <span class="skill-name">C++</span>
+                                <span class="skill-level">Advanced</span>
+                            </div>
+                            <div class="skill-item">
+                                <span class="skill-name">Arduino</span>
+                                <span class="skill-level">Expert</span>
+                            </div>
+                            <div class="skill-item">
+                                <span class="skill-name">Python</span>
+                                <span class="skill-level">Intermediate</span>
+                            </div>
+                            <div class="skill-item">
+                                <span class="skill-name">Embedded Systems</span>
+                                <span class="skill-level">Advanced</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="skill-category">
+                        <h3>Manufacturing</h3>
+                        <div class="skill-list">
+                            <div class="skill-item">
+                                <span class="skill-name">3D Printing</span>
+                                <span class="skill-level">Expert</span>
+                            </div>
+                            <div class="skill-item">
+                                <span class="skill-name">CNC Machining</span>
+                                <span class="skill-level">Advanced</span>
+                            </div>
+                            <div class="skill-item">
+                                <span class="skill-name">Mold Design</span>
+                                <span class="skill-level">Advanced</span>
+                            </div>
+                            <div class="skill-item">
+                                <span class="skill-name">Quality Control</span>
+                                <span class="skill-level">Advanced</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="skill-category">
+                        <h3>Specialized Systems</h3>
+                        <div class="skill-list">
+                            <div class="skill-item">
+                                <span class="skill-name">UAV Controls</span>
+                                <span class="skill-level">Expert</span>
+                            </div>
+                            <div class="skill-item">
+                                <span class="skill-name">Flight Dynamics</span>
+                                <span class="skill-level">Advanced</span>
+                            </div>
+                            <div class="skill-item">
+                                <span class="skill-name">HVAC Systems</span>
+                                <span class="skill-level">Advanced</span>
+                            </div>
+                            <div class="skill-item">
+                                <span class="skill-name">Control Systems</span>
+                                <span class="skill-level">Advanced</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Contact Section -->
+            <section id="contact" class="section-card fade-in">
+                <div class="section-header">
+                    <h2>Get In Touch</h2>
+                    <p>Ready to collaborate on innovative engineering solutions? Let's connect and create something amazing together.</p>
+                </div>
+                <div class="contact-grid">
+                    <div class="contact-info">
+                        <a href="https://www.linkedin.com/in/abdullah-hamid-a7453928a" class="contact-item" target="_blank">
+                            <div class="contact-icon">💼</div>
+                            <div class="contact-details">
+                                <h4>LinkedIn</h4>
+                                <p>Professional networking and career updates</p>
+                            </div>
+                        </a>
+                        <div class="contact-item">
+                            <div class="contact-icon">📧</div>
+                            <div class="contact-details">
+                                <h4>Email</h4>
+                                <p>Direct communication for projects and opportunities</p>
+                            </div>
+                        </div>
+                        <a href="tel:+923338667365" class="contact-item">
+                            <div class="contact-icon">📱</div>
+                            <div class="contact-details">
+                                <h4>Phone</h4>
+                                <p>03338667365 — Quick discussions and consultations</p>
+                            </div>
+                        </a>
+                        <div class="contact-item">
+                            <div class="contact-icon">📍</div>
+                            <div class="contact-details">
+                                <h4>Location</h4>
+                                <p>Rawalpindi, Punjab, Pakistan</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="quick-actions">
+                        <a href="https://www.linkedin.com/in/abdullah-hamid-a7453928a" class="action-btn" target="_blank">
+                            📱 Connect on LinkedIn
+                        </a>
+                        <a href="mailto:abdullahzhamid78@gmail.com" class="action-btn secondary">📧 Send Email</a>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <!-- Projects Page (full listing) -->
+    <div id="projectsPage" class="page">
+        <div class="back-btn" onclick="showMainPage()">← Back to Main</div>
+        <div class="projects-page-header">
+            <h1>All Projects</h1>
+            <p>Comprehensive showcase of engineering innovations, sustainable solutions, and cutting-edge technology implementations</p>
+        </div>
+
+        <div class="container">
+            <div class="projects-grid" style="padding: 2rem 0;">
+                <!-- All projects provided by user included below -->
+
+                <div class="project-card">
+                    <div class="project-complexity">Research Project</div>
+                    <h3>CFD-Based Toroidal Propeller Design</h3>
+                    <p>Advanced computational fluid dynamics analysis of toroidal propellers to reduce noise signature and improve efficiency for next-generation aircraft applications.</p>
+                    <div class="project-achievements">
+                        <h4>Research Outcomes:</h4>
+                        <ul class="achievement-list">
+                            <li>Significant reduction in acoustic signature compared to conventional propellers</li>
+                            <li>Improved thrust efficiency through optimized blade geometry</li>
+                            <li>Advanced CFD modeling and turbulence analysis</li>
+                            <li>Novel blade tip design for vortex reduction</li>
+                            <li>Performance validation through simulation studies</li>
+                        </ul>
+                    </div>
+                    <div class="project-tech">
+                        <span class="tech-tag">ANSYS Fluent</span>
+                        <span class="tech-tag">CFD Analysis</span>
+                        <span class="tech-tag">Acoustic Engineering</span>
+                        <span class="tech-tag">Propeller Design</span>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-complexity">Research Project</div>
+                    <h3>Flight Simulator Motion Platform</h3>
+                    <p>Development of high-fidelity motion platform system for pilot training simulators with precise 6-DOF movement and real-time response capabilities.</p>
+                    <div class="project-achievements">
+                        <h4>System Features:</h4>
+                        <ul class="achievement-list">
+                            <li>6-degree-of-freedom motion simulation</li>
+                            <li>Real-time flight data integration</li>
+                            <li>Precise servo motor control systems</li>
+                            <li>High-frequency response for realistic motion cues</li>
+                            <li>Safety systems and emergency stop protocols</li>
+                        </ul>
+                    </div>
+                    <div class="project-tech">
+                        <span class="tech-tag">Motion Control</span>
+                        <span class="tech-tag">Servo Systems</span>
+                        <span class="tech-tag">Flight Simulation</span>
+                        <span class="tech-tag">Real-time Systems</span>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-complexity">FYP</div>
+                    <h3>FYP — Drone-Based Anti-Drone System</h3>
+                    <p>Autonomous counter-UAS system designed to physically intercept and neutralize hostile drones, with reusable interception capability.</p>
+                    <div class="project-achievements">
+                        <h4>System Capabilities:</h4>
+                        <ul class="achievement-list">
+                            <li>Autonomous target detection using computer vision</li>
+                            <li>Real-time threat assessment and classification</li>
+                            <li>Physical interception mechanism for drone neutralization</li>
+                            <li>Reusable design for multiple deployment cycles</li>
+                            <li>Advanced flight path prediction algorithms</li>
+                            <li>Emergency recovery and landing systems</li>
+                        </ul>
+                    </div>
+                    <div class="project-tech">
+                        <span class="tech-tag">Computer Vision</span>
+                        <span class="tech-tag">Machine Learning</span>
+                        <span class="tech-tag">Autonomous Systems</span>
+                        <span class="tech-tag">Defense Technology</span>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-complexity">Research Project</div>
+                    <h3>Autonomous Fighter UAV</h3>
+                    <p>An autonomous fighter UAV prototype that autonomously detects UAVs, captures evidence, and transmits verification to ground stations for engagement confirmation.</p>
+                    <div class="project-achievements">
+                        <h4>Technical Highlights:</h4>
+                        <ul class="achievement-list">
+                            <li>Camera + Raspberry Pi integration for onboard processing and recording</li>
+                            <li>Pixhawk-based flight control and mission planning</li>
+                            <li>Secure telemetry link for evidence transfer</li>
+                            <li>Autonomous interception routines and modular payloads</li>
+                        </ul>
+                    </div>
+                    <div class="project-tech">
+                        <span class="tech-tag">Pixhawk</span>
+                        <span class="tech-tag">Raspberry Pi</span>
+                        <span class="tech-tag">Embedded Vision</span>
+                        <span class="tech-tag">Autonomy</span>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-complexity">Industrial</div>
+                    <h3>Industrial Plastic Waste Extruder</h3>
+                    <p>High-capacity extruder system designed for converting waste plastic into reusable paste for sustainable manufacturing of eco-friendly products.</p>
+                    <div class="project-achievements">
+                        <h4>Technical Specifications:</h4>
+                        <ul class="achievement-list">
+                            <li>Production capacity: 200kg/hr waste plastic processing</li>
+                            <li>Barrel dimensions: 120mm internal diameter, 140mm outer diameter</li>
+                            <li>Optimized screw design for uniform heating and mixing</li>
+                            <li>Automated temperature control system</li>
+                            <li>Energy-efficient heating elements and safety interlocks</li>
+                        </ul>
+                    </div>
+                    <div class="project-tech">
+                        <span class="tech-tag">SolidWorks</span>
+                        <span class="tech-tag">Thermal Analysis</span>
+                        <span class="tech-tag">Manufacturing</span>
+                        <span class="tech-tag">Sustainability</span>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-complexity">Advanced</div>
+                    <h3>Waterproof Circuit Casing</h3>
+                    <p>Custom-designed waterproof enclosures for electronic circuits operating in harsh industrial manufacturing environments with optimal heat dissipation.</p>
+                    <div class="project-achievements">
+                        <h4>Design Features:</h4>
+                        <ul class="achievement-list">
+                            <li>IP67 waterproof rating for complete dust and water protection</li>
+                            <li>Integrated heat sink design for thermal management</li>
+                            <li>Corrosion-resistant aluminum housing with easy-access maintenance panels</li>
+                            <li>Vibration-resistant mounting system and cable gland integration</li>
+                        </ul>
+                    </div>
+                    <div class="project-tech">
+                        <span class="tech-tag">CAD Design</span>
+                        <span class="tech-tag">Materials Science</span>
+                        <span class="tech-tag">Prototyping</span>
+                        <span class="tech-tag">Thermal Management</span>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-complexity">Comprehensive</div>
+                    <h3>Precision Mold Design Suite</h3>
+                    <p>Comprehensive mold design system for manufacturing various eco-friendly products including bricks, planters, pots, and tea coasters from recycled plastic.</p>
+                    <div class="project-achievements">
+                        <h4>Mold Specifications:</h4>
+                        <ul class="achievement-list">
+                            <li>Multi-cavity mold designs for high-volume production</li>
+                            <li>Optimized cooling channel layout for uniform temperature</li>
+                            <li>Precision surface finishing for superior product quality</li>
+                            <li>Modular design for easy maintenance and part replacement</li>
+                            <li>Draft angle optimization and material flow analysis</li>
+                        </ul>
+                    </div>
+                    <div class="project-tech">
+                        <span class="tech-tag">Mold Design</span>
+                        <span class="tech-tag">Injection Molding</span>
+                        <span class="tech-tag">Flow Analysis</span>
+                        <span class="tech-tag">Quality Control</span>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-complexity">CFD</div>
+                    <h3>CFD of Spoiler</h3>
+                    <p>High-resolution CFD study of automotive/aircraft spoiler aerodynamics across incremental deflection angles to quantify lift/drag trade-off and separation behaviour.</p>
+                    <div class="project-achievements">
+                        <h4>Technical details:</h4>
+                        <ul class="achievement-list">
+                            <li>Software: ANSYS Fluent / steady RANS</li>
+                            <li>Mesh: hybrid prism layers + unstructured tetrahedral (2–4M cells); mesh independence tested</li>
+                            <li>Turbulence model: SST k-ω for accurate separation prediction</li>
+                            <li>BCs: inlet velocity 30 m/s, turbulence intensity 1%, pressure outlet</li>
+                            <li>Outcomes: separation onset at α≈12°, peak downforce vs deflection curve, pressure coefficient &streamline plots</li>
+                        </ul>
+                    </div>
+                    <div class="project-tech">
+                        <span class="tech-tag">ANSYS Fluent</span>
+                        <span class="tech-tag">SST k-ω</span>
+                        <span class="tech-tag">Mesh Independence</span>
+                        <span class="tech-tag">Aerodynamics</span>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-complexity">CFD</div>
+                    <h3>CFD of Drone (Airframe & Propwash)</h3>
+                    <p>Coupled aerodynamic study of small fixed-wing/VTOL drone to analyze propeller–airframe interaction, propwash effects, and local flow acceleration impacting stability and control.</p>
+                    <div class="project-achievements">
+                        <h4>Technical details:</h4>
+                        <ul class="achievement-list">
+                            <li>Approach: MRF (steady) for propellers and transient URANS for wake time-history comparisons</li>
+                            <li>Mesh: local refinement in propwash region, ~3–6M cells with boundary layer prisms</li>
+                            <li>Turbulence model: SST k-ω (MRF) and URANS for unsteady wakes</li>
+                            <li>BCs: rotating reference frame for propellers, cruise speed 15 m/s</li>
+                            <li>Outcomes: mapped induced velocity field, identified lifting surface regions affected by propwash, recommendations for fin placement to reduce control coupling</li>
+                        </ul>
+                    </div>
+                    <div class="project-tech">
+                        <span class="tech-tag">MRF / URANS</span>
+                        <span class="tech-tag">Propwash</span>
+                        <span class="tech-tag">ANSYS Fluent</span>
+                        <span class="tech-tag">Aero–Prop Interaction</span>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-complexity">CFD</div>
+                    <h3>CFD of Heat Exchanger (Conjugate Heat Transfer)</h3>
+                    <p>Conjugate heat transfer simulation of a compact plate-fin heat exchanger to evaluate thermal performance and pressure drop for optimized fin spacing and flow arrangement.</p>
+                    <div class="project-achievements">
+                        <h4>Technical details:</h4>
+                        <ul class="achievement-list">
+                            <li>Solver: coupled pressure–velocity with energy equation (conjugate heat transfer)</li>
+                            <li>Mesh: structured hex elements in channels, refined near fins; O(2–5M) cells</li>
+                            <li>Turbulence model: RNG k-ε for internal turbulent flows</li>
+                            <li>BCs: hot side mass flow 0.12 kg/s, cold side 0.18 kg/s; inlet temperatures specified</li>
+                            <li>Outcomes: thermal effectiveness, NTU estimates, optimized fin pitch reducing pressure drop by ~12% while maintaining heat transfer</li>
+                        </ul>
+                    </div>
+                    <div class="project-tech">
+                        <span class="tech-tag">Conjugate Heat Transfer</span>
+                        <span class="tech-tag">RNG k-ε</span>
+                        <span class="tech-tag">Thermal Analysis</span>
+                        <span class="tech-tag">ANSYS Fluent</span>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-complexity">CFD</div>
+                    <h3>CFD of Rocket (External Aerodynamics)</h3>
+                    <p>External aerodynamic simulation of a subscale rocket body across low-subsonic to transonic regimes to determine drag, shock formation and base flow features affecting stability.</p>
+                    <div class="project-achievements">
+                        <h4>Technical details:</h4>
+                        <ul class="achievement-list">
+                            <li>Regimes: Mach 0.3 – 0.9 (transonic onset analysis)</li>
+                            <li>Mesh: anisotropic refinement in nose and shoulder regions; boundary-layer prism stacks; total cells ~4M</li>
+                            <li>Turbulence / approach: SST k-ω for steady RANS; selected DES for critical transonic checks</li>
+                            <li>BCs: far-field pressure/velocity, symmetry planes where applicable</li>
+                            <li>Outcomes: Cd vs Mach curve, shock/bow behaviour mapping, recommendations for boat-tail geometry to reduce base drag</li>
+                        </ul>
+                    </div>
+                    <div class="project-tech">
+                        <span class="tech-tag">External Aero</span>
+                        <span class="tech-tag">SST k-ω / DES</span>
+                        <span class="tech-tag">Transonic</span>
+                        <span class="tech-tag">ANSYS Fluent</span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Page Management
+        function showMainPage() { document.getElementById('mainPage').classList.add('active'); document.getElementById('projectsPage').classList.remove('active'); window.scrollTo(0, 0); }
+        function showProjectsPage() { document.getElementById('mainPage').classList.remove('active'); document.getElementById('projectsPage').classList.add('active'); window.scrollTo(0, 0); }
+        function scrollToSection(sectionId) { setTimeout(() => { const element = document.getElementById(sectionId); if (element) { element.scrollIntoView({ behavior: 'smooth' }); } }, 100); }
+
+        // Intersection Observer for fade-in animations
+        const observerOptions = { threshold: 0.1, rootMargin: '0px 0px -50px 0px' };
+        const observer = new IntersectionObserver((entries) => { entries.forEach(entry => { if (entry.isIntersecting) { entry.target.classList.add('visible'); } }); }, observerOptions);
+        document.querySelectorAll('.fade-in').forEach(el => { observer.observe(el); });
+
+        // Particle Animation
+        function createParticles() { const particlesContainer = document.getElementById('particles'); const particleCount = 20; for (let i = 0; i < particleCount; i++) { const particle = document.createElement('div'); particle.classList.add('particle'); const size = Math.random() * 4 + 2; particle.style.width = size + 'px'; particle.style.height = size + 'px'; particle.style.left = Math.random() * 100 + '%'; particle.style.top = Math.random() * 100 + '%'; particle.style.animationDelay = Math.random() * 6 + 's'; particlesContainer.appendChild(particle); } }
+        createParticles();
+
+        // Header scroll effect
+        window.addEventListener('scroll', () => { const header = document.querySelector('header'); if (window.scrollY > 100) { header.style.background = 'rgba(15, 23, 42, 0.95)'; } else { header.style.background = 'rgba(15, 23, 42, 0.9)'; } });
+
+        // Smooth scrolling for navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => { anchor.addEventListener('click', function (e) { e.preventDefault(); const target = document.querySelector(this.getAttribute('href')); if (target) { target.scrollIntoView({ behavior: 'smooth', block: 'start' }); } }); });
+
+        // Interactive hover effects
+        document.querySelectorAll('.project-card').forEach(card => { card.addEventListener('mouseenter', function() { this.style.transform = 'translateY(-10px) scale(1.02)'; }); card.addEventListener('mouseleave', function() { this.style.transform = 'translateY(0) scale(1)'; }); });
+
+        // Typing effect
+        function typeWriter(element, text, speed = 100) { let i = 0; element.innerHTML = ''; function typing() { if (i < text.length) { element.innerHTML += text.charAt(i); i++; setTimeout(typing, speed); } } typing(); }
+        window.addEventListener('load', () => { const subtitle = document.querySelector('.hero .subtitle'); if (subtitle && document.getElementById('mainPage').classList.contains('active')) { setTimeout(() => { typeWriter(subtitle, 'Mechanical Engineer', 150); }, 1000); } });
+
+        // Loading animation
+        document.addEventListener('DOMContentLoaded', function() { document.body.style.opacity = '0'; setTimeout(() => { document.body.style.transition = 'opacity 0.5s ease'; document.body.style.opacity = '1'; }, 100); });
+
+        // Enhanced scroll indicator
+        const scrollIndicator = document.querySelector('.scroll-indicator'); if (scrollIndicator) { window.addEventListener('scroll', () => { const scrolled = window.scrollY; const rate = scrolled * -0.5; scrollIndicator.style.transform = `translateX(-50%) translateY(${rate}px)`; if (scrolled > 200) { scrollIndicator.style.opacity = '0'; } else { scrollIndicator.style.opacity = '1'; } }); }
+
+        // Contact form functionality
+        function sendEmail() { window.location.href = "mailto:abdullahzhamid78@gmail.com"; }
+
+        // Accessibility improvements
+        function improveAccessibility() { const skipLink = document.createElement('a'); skipLink.href = '#main-content'; skipLink.textContent = 'Skip to main content'; skipLink.className = 'skip-link'; skipLink.style.cssText = `position: absolute; top: -40px; left: 6px; background: #64ffda; color: #0f172a; padding: 8px; text-decoration: none; border-radius: 4px; z-index: 1001; transition: top 0.3s;`; skipLink.addEventListener('focus', () => { skipLink.style.top = '6px'; }); skipLink.addEventListener('blur', () => { skipLink.style.top = '-40px'; }); document.body.insertBefore(skipLink, document.body.firstChild); document.querySelectorAll('.btn').forEach((btn, index) => { if (!btn.getAttribute('aria-label')) { btn.setAttribute('aria-label', btn.textContent.trim()); } }); const style = document.createElement('style'); style.textContent = `.btn:focus, .contact-link:focus, .nav-links a:focus { outline: 2px solid #64ffda; outline-offset: 2px; }`; document.head.appendChild(style); }
+        improveAccessibility();
+
+        // Page transitions
+        function addPageTransitions() { const pages = document.querySelectorAll('.page'); pages.forEach(page => { page.style.transition = 'opacity 0.3s ease, transform 0.3s ease'; }); }
+        addPageTransitions();
+
+        console.log('Portfolio updated: FSc added to education, 3rd position in Gujranwala board added to achievements, and All Projects page populated with full project list.');
+    </script>
+</body>
+</html>
